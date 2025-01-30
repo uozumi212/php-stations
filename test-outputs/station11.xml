@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/app/tests/Station11" tests="5" assertions="7" errors="0" warnings="0" failures="1" skipped="0" time="0.017197">
-    <testsuite name="Tests\Station11\QuestionTest" file="/app/tests/Station11/QuestionTest.php" tests="5" assertions="7" errors="0" warnings="0" failures="1" skipped="0" time="0.017197">
-      <testcase name="_300円の予算内で3つのお菓子データを抽出する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="43" assertions="3" time="0.012769">
+  <testsuite name="/app/tests/Station11" tests="5" assertions="7" errors="0" warnings="0" failures="1" skipped="0" time="0.024117">
+    <testsuite name="Tests\Station11\QuestionTest" file="/app/tests/Station11/QuestionTest.php" tests="5" assertions="7" errors="0" warnings="0" failures="1" skipped="0" time="0.024117">
+      <testcase name="_300円の予算内で3つのお菓子データを抽出する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="43" assertions="3" time="0.016658">
         <system-out>Array
+(
+    [0] =&gt; 0
+    [1] =&gt; 2
+    [2] =&gt; 1
+)
+Array
 (
     [0] =&gt; Array
         (
@@ -13,38 +19,77 @@
 
     [1] =&gt; Array
         (
-            [name] =&gt; 綿菓子
-            [price] =&gt; 300
+            [name] =&gt; チョコレート
+            [price] =&gt; 80
         )
 
     [2] =&gt; Array
         (
-            [name] =&gt; チョコレート
-            [price] =&gt; 88
+            [name] =&gt; 綿菓子
+            [price] =&gt; 60
         )
 
 )
+Array
+(
+    [0] =&gt; 2
+    [1] =&gt; 0
+    [2] =&gt; 1
+)
 </system-out>
       </testcase>
-      <testcase name="お菓子データの抽出はランダムである" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="55" assertions="1" time="0.001226"/>
-      <testcase name="getSweetsLessThanBudgetでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="72" assertions="1" time="0.000634"/>
-      <testcase name="getRandomKeysでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="93" assertions="1" time="0.002517">
+      <testcase name="お菓子データの抽出はランダムである" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="55" assertions="1" time="0.001383">
+        <system-out>Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 2
+    [2] =&gt; 0
+)
+Array
+(
+    [0] =&gt; 0
+    [1] =&gt; 2
+    [2] =&gt; 1
+)
+Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 0
+    [2] =&gt; 2
+)
+Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 2
+    [2] =&gt; 0
+)
+</system-out>
+      </testcase>
+      <testcase name="getSweetsLessThanBudgetでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="72" assertions="1" time="0.001265"/>
+      <testcase name="getRandomKeysでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="93" assertions="1" time="0.004766">
         <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Station11\QuestionTest::getRandomKeysでの処理が命名に合致する
 Failed asserting that two arrays are identical.
 --- Expected
 +++ Actual
 @@ @@
  Array &amp;0 (
-     0 =&gt; 0
-     1 =&gt; 1
--    2 =&gt; 3
-+    2 =&gt; 2
-+    3 =&gt; 3
+-    0 =&gt; 0
+-    1 =&gt; 1
++    0 =&gt; 1
++    1 =&gt; 0
+     2 =&gt; 3
  )
 
 /app/tests/Station11/QuestionTest.php:106</failure>
+        <system-out>Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 0
+    [2] =&gt; 3
+)
+</system-out>
       </testcase>
-      <testcase name="makeCombinationでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="112" assertions="1" time="0.000052"/>
+      <testcase name="makeCombinationでの処理が命名に合致する" class="Tests\Station11\QuestionTest" classname="Tests.Station11.QuestionTest" file="/app/tests/Station11/QuestionTest.php" line="112" assertions="1" time="0.000046"/>
     </testsuite>
   </testsuite>
 </testsuites>

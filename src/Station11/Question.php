@@ -8,20 +8,13 @@ class Question
     {
         $budget = 300;
         $lessThanBudgetSweets = $this->getSweetsLessThanBudget($sweets, $budget);
-        $maxAttempts = 5;
-        $attempts = 0;
 
-        do {
-            $keys = $this->getRandomKeys($lessThanBudgetSweets, 3);
+        $count = min(count($lessThanBudgetSweets), 3);
+        $keys = $this->getRandomKeys($lessThanBudgetSweets, $count);
 
-            $selectedSweets = $this->makeCombination($lessThanBudgetSweets, $keys);
-            $totalPrice = array_sum(array_column($selectedSweets, 'price'));
-            $attempts++;
-            if ($attempts >= $maxAttempts) {
-                $keys = array_slice(array_keys($lessThanBudgetSweets), 0, 3);
-                return $this->makeCombination($lessThanBudgetSweets, $keys);
-            }
-        } while ($totalPrice >= $budget);
+        $selectedSweets = $this->makeCombination($lessThanBudgetSweets, $keys);
+            // $totalPrice = array_sum(array_column($selectedSweets, 'price'));
+
 
         return $selectedSweets;
     }
@@ -32,19 +25,31 @@ class Question
             return $sweet['price'] <= $budget;
         });
 
-        return $filtered;
+        return array_values($filtered);
     }
 
     private function getRandomKeys(array $array, int $count)
     {
+        $budget = 300;
         $keys = array_keys($array);
+        // shuffle($keys);
+        $selectedKeys = [];
+        $currentTotal = 0;
 
-        usort($keys, function ($a, $b) use ($array) {
-            return $array[$a]['price'] <=> $array[$b]['price'];
-        });
-
-        shuffle($keys);
-        return array_slice($keys, 0, $count);
+        foreach ($keys as $key) {
+            if ($currentTotal + $array[$key]['price'] <= $budget && count($selectedKeys) < $count) {
+                $selectedKeys[] = $key;
+                $currentTotal += $array[$key]['price'];
+            }
+            if (count($selectedKeys) >= $count) {
+                break;
+            }
+        }
+        // print_r($currentTotal);
+        shuffle($selectedKeys);
+        print_r($selectedKeys);
+        // return array_slice($keys, 0, 3);
+        return $selectedKeys;
     }
 
     private function makeCombination(array $sweets, array $keys)
@@ -54,24 +59,40 @@ class Question
             $combination[] = $sweets[$key];
         }
 
-        // var_dump($combination);
         return $combination;
     }
 }
-        $sweets = [
-            [
-                'name' => '飴玉',
-                'price' => '50'
-            ],
-            [
-                'name' => '綿菓子',
-                'price' => '300'
-            ],
-            [
-                'name' => 'チョコレート',
-                'price' => '88'
-            ],
-        ];
+	 $sweets = [
+		            [
+		                'name' => '飴玉',
+		                'price' => '50'
+		            ],
+		            [
+		                'name' => '綿菓子',
+		                'price' => '60'
+		            ],
+		            [
+		                'name' => 'チョコレート',
+		                'price' => '80'
+		            ],
+		            [
+		                'name' => 'ドーナツ',
+		                'price' => '120'
+		            ],
+		            [
+		                'name' => 'キャラメル',
+		                'price' => '180'
+		            ],
+		            [
+		                'name' => 'ラムネ',
+		                'price' => '90'
+		            ],
+		            [
+		                'name' => 'クッキー缶',
+		                'price' => '299'
+		            ],
+
+		        ];
 
 // (new Question())->main($sweets);
 $question = new Question();

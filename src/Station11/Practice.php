@@ -43,19 +43,20 @@ class Practice
     //     }
     //     return [$men, $women];
     // }
-        public function main(array $sweets, int $budget): array
+        public function main(array $sweets): array
     {
+        $budget = 300;
         $lessThanBudgetSweets = $this->getSweetsLessThanBudget($sweets, $budget);
         $keys = $this->getRandomKeys($lessThanBudgetSweets, $budget);
         $result = $this->makeCombination($sweets, $keys);
-        print_r($result);
+        // print_r($result);
         return $result;
     }
 
     private function getSweetsLessThanBudget(array $sweets, int $budget)
     {
         return array_filter($sweets, function($sweet) use ($budget) {
-            return $sweet['price'] <= 300;
+            return $sweet['price'] <= $budget;
         });
     }
 
@@ -90,9 +91,9 @@ class Practice
                 'price' => '88'
             ],
         ];
-        $budget = 300;
+
         $practice = new Practice();
-        $result = $practice->main($sweets, $budget);
+        $result = $practice->main($sweets);
         print_r($result);
 
 // $students = [
